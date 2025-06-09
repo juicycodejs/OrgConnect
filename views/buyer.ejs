@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <nav class="flex justify-center gap-10 text-xl font-bold bg-zinc-800 text-white h-full w-full p-6">
+      <a href="/" class="p-2 hover:text-cyan-200">Home</a>
+      <a href="/contact" class="p-2 hover:text-cyan-200">Contact</a>
+    </nav>
+    
+    <div class="flex flex-col justify-center items-center text-center h-170 p-10 bg-gradient-to-r from-[#1e1f26] to-[#2c2f3f] text-stone-300">
+      <div class="w-max">
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-[#00ff99] to-[#00ccff] bg-clip-text text-transparent">Marketplace</h1>
+        <p class="text-xl text-stone-300 p-7">Explore produce listings and Buy from the farmers directly</p>
+      </div>
+
+      <div>
+        <table class="w-310 divide-y divide-gray-200 rounded-xl overflow-hidden shadow-md">
+          <thead class="bg-zinc-800">
+            <tr>
+              <th class="px-6 py-3 text-left text-base font-semibold text-stone-300">Product</th>
+              <th class="px-6 py-3 text-left text-base font-semibold text-stone-300">Category</th>
+              <th class="px-6 py-3 text-left text-base font-semibold text-stone-300">Quantity</th>
+              <th class="px-6 py-3 text-left text-base font-semibold text-stone-300">Price</th>
+              <th class="px-6 py-3 text-left text-base font-semibold text-stone-300">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% items.forEach(item => { %>
+              <tr class="hover:bg-zinc-600 transition">
+                <td class="text-sm text-stone-300"><%= item.productname %></td>
+                <td class="py-4 text-sm text-stone-300"><%= item.category %></td>
+                <td class="py-4 text-sm text-stone-300"><%= item.quantity %></td>
+                <td class="py-4 text-sm text-stone-300"><%= item.price %></td>
+                <td class="px-4 py-2">
+                    <form action="/buy/<%= item._id %>" method="POST" class="flex items-center gap-5">
+                        <select name="buyQuantity" class="border rounded px-2 py-1">
+                            <% for (let i = 1; i <= item.quantity; i++) { %>
+                                <option class="bg-zinc-900" value="<%= i %>"><%= i %></option>
+                            <% } %>
+                        </select>
+                        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded">
+                            Buy
+                        </button>
+                    </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </body>
+</html>

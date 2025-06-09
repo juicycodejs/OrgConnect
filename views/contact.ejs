@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact us</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+    <nav class="flex justify-center gap-10 text-xl font-bold bg-zinc-800 text-white h-full w-full p-6">
+      <a href="/" class="p-2 hover:text-cyan-200">Home</a>
+    </nav>
+    
+    <div class="flex flex-col justify-center items-center p-20 bg-gradient-to-r from-[#1e1f26] to-[#2c2f3f] text-stone-300">
+      <h1 class="text-5xl font-bold bg-gradient-to-r from-[#00ff99] to-[#00ccff] bg-clip-text text-transparent">Contact Us</h1>
+      <p class="text-xl text-stone-300 p-7">Reach out to OrgConnect with your questions, feedback, or partnership inquiries.</p>
+      <div class="center mt-10 p-20 bg-zinc-800 rounded-2xl w-200">
+        <form class="flex flex-col justify-center items-center gap-6" action="/contact" method="POST">
+          <input class="h-5 w-150 text-white border-gray-400 border-2 border-solid rounded-lg delay-50 p-5 placeholder:font-medium" type="text" name="name" placeholder="Your name" />
+          <input class="h-5 w-150 text-white border-gray-400 border-2 border-solid rounded-lg delay-50 p-5 placeholder:font-medium" type="email" name="email" placeholder="Your email" />
+          <select class="h-10 w-150 text-stone-400 bg-zinc-800 border-2 border-solid border-gray-400 pl-3 rounded-lg font-medium" name="subject" required>
+            <option value="">Select Subject</option>
+            <option value="Support">Support</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Partnership">Partnership Inquiry</option>
+          </select>
+          <textarea class="h-40 w-150 text-white border-gray-400 border-2 border-solid rounded-lg delay-50 p-5 placeholder:font-medium" type="text" name="message" placeholder="Your Message"></textarea>
+          <button class="text-base cursor-pointer text-zinc-700 bg-stone-300 font-bold w-30 h-10 rounded-lg shadow-md transition duration-300 hover:bg-stone-600 hover:text-white" type="submit" onclick="response()" >Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </body>
+  <script>
+    function response(){
+      alert("Your response has been recorded");
+    }
+  </script>
+</html>
